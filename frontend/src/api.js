@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:8000';
+const BASE = import.meta.env.VITE_API_URL;
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
@@ -13,22 +13,22 @@ async function request(path, options = {}) {
 }
 
 // Snippets
-export const getSnippets  = ()       => request('/snippets');
-export const createSnippet = (data)  => request('/snippets', { method: 'POST', body: JSON.stringify(data) });
+export const getSnippets = () => request('/snippets');
+export const createSnippet = (data) => request('/snippets', { method: 'POST', body: JSON.stringify(data) });
 export const updateSnippet = (id, d) => request(`/snippets/${id}`, { method: 'PUT', body: JSON.stringify(d) });
-export const deleteSnippet = (id)    => request(`/snippets/${id}`, { method: 'DELETE' });
+export const deleteSnippet = (id) => request(`/snippets/${id}`, { method: 'DELETE' });
 
 // Tasks
-export const getTasks    = ()       => request('/tasks');
-export const createTask  = (data)   => request('/tasks', { method: 'POST', body: JSON.stringify(data) });
-export const updateTask  = (id, d)  => request(`/tasks/${id}`, { method: 'PUT', body: JSON.stringify(d) });
-export const deleteTask  = (id)     => request(`/tasks/${id}`, { method: 'DELETE' });
+export const getTasks = () => request('/tasks');
+export const createTask = (data) => request('/tasks', { method: 'POST', body: JSON.stringify(data) });
+export const updateTask = (id, d) => request(`/tasks/${id}`, { method: 'PUT', body: JSON.stringify(d) });
+export const deleteTask = (id) => request(`/tasks/${id}`, { method: 'DELETE' });
 
 // Notes
-export const getNotes    = ()       => request('/notes');
-export const createNote  = (data)   => request('/notes', { method: 'POST', body: JSON.stringify(data) });
-export const updateNote  = (id, d)  => request(`/notes/${id}`, { method: 'PUT', body: JSON.stringify(d) });
-export const deleteNote  = (id)     => request(`/notes/${id}`, { method: 'DELETE' });
+export const getNotes = () => request('/notes');
+export const createNote = (data) => request('/notes', { method: 'POST', body: JSON.stringify(data) });
+export const updateNote = (id, d) => request(`/notes/${id}`, { method: 'PUT', body: JSON.stringify(d) });
+export const deleteNote = (id) => request(`/notes/${id}`, { method: 'DELETE' });
 
 // API Tester
 export const testApi = (data) => request('/api-test', { method: 'POST', body: JSON.stringify(data) });
