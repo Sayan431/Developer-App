@@ -6,25 +6,25 @@ import {
 } from './Icons';
 
 const COLUMNS = [
-  { key: 'todo',        label: 'To Do',       Icon: IconClipboard,  color: 'var(--text-secondary)' },
-  { key: 'in_progress', label: 'In Progress',  Icon: IconRefreshCw,  color: 'var(--accent-amber)' },
-  { key: 'done',        label: 'Done',         Icon: IconCheckSquare,color: 'var(--accent-green)' },
+  { key: 'todo', label: 'To Do', Icon: IconClipboard, color: 'var(--text-secondary)' },
+  { key: 'in_progress', label: 'In Progress', Icon: IconRefreshCw, color: 'var(--accent-amber)' },
+  { key: 'done', label: 'Done', Icon: IconCheckSquare, color: 'var(--accent-green)' },
 ];
 
 const PRIORITIES = ['low', 'medium', 'high'];
 
 const PRIORITY_CONFIG = {
-  high:   { color: 'var(--accent-red)',    bg: 'rgba(239,68,68,0.12)',  label: 'High' },
-  medium: { color: 'var(--accent-amber)',  bg: 'rgba(245,158,11,0.12)', label: 'Medium' },
-  low:    { color: 'var(--accent-green)',  bg: 'rgba(16,185,129,0.12)', label: 'Low' },
+  high: { color: 'var(--accent-red)', bg: 'rgba(239,68,68,0.12)', label: 'High' },
+  medium: { color: 'var(--accent-amber)', bg: 'rgba(245,158,11,0.12)', label: 'Medium' },
+  low: { color: 'var(--accent-green)', bg: 'rgba(16,185,129,0.12)', label: 'Low' },
 };
 
 function TaskForm({ initial = {}, onSave, onClose }) {
   const [form, setForm] = useState({
-    title:       initial.title       || '',
+    title: initial.title || '',
     description: initial.description || '',
-    priority:    initial.priority    || 'medium',
-    status:      initial.status      || 'todo',
+    priority: initial.priority || 'medium',
+    status: initial.status || 'todo',
   });
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -118,9 +118,9 @@ function TaskCard({ task, onEdit, onDelete, onStatusChange }) {
 }
 
 export default function Tasks() {
-  const [tasks, setTasks]   = useState([]);
+  const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [modal, setModal]   = useState(null);
+  const [modal, setModal] = useState(null);
 
   const load = () =>
     getTasks().then(setTasks).catch(console.error).finally(() => setLoading(false));
@@ -129,7 +129,7 @@ export default function Tasks() {
 
   const handleSave = async (data) => {
     if (modal?.id) await updateTask(modal.id, data);
-    else            await createTask(data);
+    else await createTask(data);
     setModal(null);
     load();
   };
@@ -168,7 +168,7 @@ export default function Tasks() {
           {COLUMNS.map(col => {
             const colTasks = byStatus(col.key);
             return (
-              <div className="task-column" key={col.key}>
+              <div className="task-column" key={col.key} style={{ borderTop: `3px solid ${col.color}` }}>
                 <div className="task-column-header">
                   <div className="task-column-title" style={{ color: col.color }}>
                     <col.Icon size={14} />

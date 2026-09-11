@@ -10,9 +10,9 @@
   --border: #2a2a3d;
   --border-focus: #6c63ff;
 
-  --text-primary: #e8e8f0;
-  --text-secondary: #888899;
-  --text-muted: #555566;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0c0;
+  --text-muted: #8a8a9e;
 
   --accent-purple: #6c63ff;
   --accent-blue: #3b82f6;
@@ -34,6 +34,25 @@
 
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ── Light Theme ── */
+:root[data-theme="light"] {
+  --bg-primary:    #f0f2f8;
+  --bg-secondary:  #ffffff;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f5f5ff;
+  --bg-input:      #f0f0fa;
+  --border:        #dde0f0;
+  --border-focus:  #6c63ff;
+
+  --text-primary:   #11111a;
+  --text-secondary: #4a4a6a;
+  --text-muted:     #8888aa;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 20px rgba(108, 99, 255, 0.2);
+}
+
 
 * {
   margin: 0;
@@ -127,6 +146,7 @@ code, pre, .mono {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow-y: auto;
 }
 
 .nav-section-label {
@@ -237,7 +257,7 @@ code, pre, .mono {
 .topbar {
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--bg-secondary);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   padding: 14px 28px;
@@ -245,12 +265,14 @@ code, pre, .mono {
   align-items: center;
   justify-content: space-between;
   z-index: 50;
+  transition: background 0.3s ease;
 }
 
 .topbar-left h1 {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.3px;
+  color: var(--text-primary);
 }
 
 .topbar-left p {
@@ -258,6 +280,7 @@ code, pre, .mono {
   color: var(--text-muted);
   margin-top: 2px;
 }
+
 
 .topbar-actions {
   display: flex;
@@ -466,7 +489,6 @@ code, pre, .mono {
 .tag-red    { background: rgba(239, 68, 68, 0.15);  color: var(--accent-red); }
 .tag-pink   { background: rgba(236, 72, 153, 0.15); color: var(--accent-pink); }
 
-/* ── Dashboard Stats ── */
 .stat-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -603,7 +625,13 @@ code, pre, .mono {
   padding: 6px 12px; border-radius: var(--radius-sm);
   font-size: 12px; font-weight: 700; cursor: pointer;
   border: 1px solid var(--border); background: var(--bg-card);
+  color: var(--text-secondary);
   font-family: 'JetBrains Mono', monospace; transition: var(--transition);
+}
+
+.method-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
 }
 
 .method-btn.get.active    { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border-color: var(--accent-green); }
@@ -696,7 +724,6 @@ code, pre, .mono {
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Activity Feed on Dashboard ── */
 .activity-item {
   display: flex; align-items: flex-start; gap: 12px;
   padding: 12px 0;
