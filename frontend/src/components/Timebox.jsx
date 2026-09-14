@@ -27,7 +27,7 @@ function beep() {
 const RADIUS = 90;
 const CIRC   = 2 * Math.PI * RADIUS;
 
-export default function Pomodoro() {
+export default function Timebox() {
   const [modeIdx, setModeIdx]       = useState(0);
   const [customMin, setCustomMin]   = useState(30);
   const [seconds, setSeconds]       = useState(MODES[0].minutes * 60);
@@ -48,7 +48,7 @@ export default function Pomodoro() {
     beep();
     setCompleted(true);
     if (Notification.permission === 'granted') {
-      new Notification('DevHub Pomodoro', { body: `${mode.label} session complete! 🎉`, icon: '/favicon.ico' });
+      new Notification('DevHub Timebox', { body: `${mode.label} session complete! 🎉`, icon: '/favicon.ico' });
     }
     if (mode.key === 'focus') setSessions(s => s + 1);
   }, [mode]);
@@ -99,7 +99,7 @@ export default function Pomodoro() {
     <div className="page">
       <div className="page-header">
         <div>
-          <h2 className="page-title">Pomodoro Timer</h2>
+          <h2 className="page-title">Timebox Timer</h2>
           <p className="page-subtitle">Stay focused with timed work sessions</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)', padding: '8px 14px', fontSize: '13px' }}>

@@ -6,7 +6,7 @@ import Tasks             from './components/Tasks';
 import Notes             from './components/Notes';
 import ApiTester         from './components/ApiTester';
 import Bookmarks         from './components/Bookmarks';
-import Pomodoro          from './components/Pomodoro';
+import Timebox           from './components/Timebox';
 import MarkdownPreviewer from './components/MarkdownPreviewer';
 import JsonFormatter     from './components/JsonFormatter';
 import EnvManager        from './components/EnvManager';
@@ -36,7 +36,7 @@ const NAV_GROUPS = [
     items: [
       { key: 'markdown',  icon: <IconEye size={16} />,         label: 'Markdown' },
       { key: 'json',      icon: <IconBraces size={16} />,      label: 'JSON Formatter' },
-      { key: 'pomodoro',  icon: <IconTimer size={16} />,       label: 'Pomodoro' },
+      { key: 'timebox',  icon: <IconTimer size={16} />,       label: 'Timebox' },
     ],
   },
   {
@@ -58,7 +58,7 @@ const PAGE_META = {
   api:       { title: 'API Tester',          subtitle: 'Test HTTP endpoints live' },
   markdown:  { title: 'Markdown Previewer',  subtitle: 'Write and preview markdown in real-time' },
   json:      { title: 'JSON Formatter',      subtitle: 'Format, validate and analyze JSON' },
-  pomodoro:  { title: 'Pomodoro Timer',      subtitle: 'Stay focused with timed work sessions' },
+  timebox:   { title: 'Timebox Timer',       subtitle: 'Stay focused with timed work sessions' },
   bookmarks: { title: 'Bookmarks',           subtitle: 'Your saved developer links' },
   envvars:   { title: 'Env Variables',       subtitle: 'Manage environment variables per project' },
   projects:  { title: 'Projects',            subtitle: 'Organise your work into projects' },
@@ -99,7 +99,7 @@ function App() {
       case 'api':       return <ApiTester />;
       case 'markdown':  return <MarkdownPreviewer />;
       case 'json':      return <JsonFormatter />;
-      case 'pomodoro':  return <Pomodoro />;
+      case 'timebox':   return <Timebox />;
       case 'bookmarks': return <Bookmarks />;
       case 'envvars':   return <EnvManager />;
       case 'projects':  return <Projects />;

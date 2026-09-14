@@ -14,7 +14,7 @@
 - [ ] `MarkdownPreviewer.jsx` – Live markdown preview
 - [ ] `JsonFormatter.jsx` – JSON format/validate
 - [ ] `Bookmarks.jsx` – Bookmark manager
-- [ ] `Pomodoro.jsx` – Pomodoro timer
+- [ ] `Timebox.jsx` – Timebox timer
 - [ ] `EnvManager.jsx` – Environment variables manager
 - [ ] `Projects.jsx` – Project manager
 - [ ] `Changelog.jsx` – Changelog tracker
